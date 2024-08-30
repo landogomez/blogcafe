@@ -20,39 +20,31 @@ formulario.addEventListener('submit', function(evento) {
     const {nombre, email, mensaje} = datos;
 
     if(nombre === '' || email === '' || mensaje === ''){
-        mostrarError('Todos los campos son obligatorios');
+        mostrarAlerta('Todos los campos son obligatorios',true);
         return;
     }
 
-    mostrarMensaje('Formulario enviado con exito!');
-})
+    mostrarAlerta('Formulario enviado con exito!');
+});
 
 function leerTexto(e){
     datos[e.target.id] = e.target.value;
 
     console.log(datos);
 }
-
-function mostrarMensaje(mensaje){
+function mostrarAlerta(mensaje, error = null){
     const alerta = document.createElement('P');
     alerta.textContent = mensaje;
-    alerta.classList.add('correcto');
+
+    if(error){
+        alerta.classList.add('error');
+    }else{
+        alerta.classList.add('correcto');
+    }
 
     formulario.appendChild(alerta);
 
     setTimeout(() => {
         alerta.remove;
-    }, 5000);
-}
-
-function mostrarError(mensaje){
-    const error = document.createElement('P');
-    error.textContent = mensaje;
-    error.classList.add('error');
-
-    formulario.appendChild(error);
-
-    setTimeout(() => {
-        error.remove();
     }, 5000);
 }
