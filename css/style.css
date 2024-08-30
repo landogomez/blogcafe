@@ -217,6 +217,20 @@ img{
 }
 
 /** Contacto **/
+.error{
+    background-color: rgb(185, 0, 0);
+    text-align: center;
+    padding: 1rem;
+    color: var(--blanco);
+    text-transform: uppercase;
+}
+.correcto{
+    background-color: rgb(0, 185, 0);
+    text-align: center;
+    padding: 1rem;
+    color: var(--blanco);
+    text-transform: uppercase;
+}
 .contacto-bg{
     background-image: url(../blogdecafe_inicio/img/contacto.jpg);
     height: 40rem;
